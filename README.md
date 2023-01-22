@@ -1,6 +1,15 @@
 # Suite du Physique
 Ce programme permet la visualisation de la structure des atomes et simulation de la dynamique des circuits RLC et de la gravitation
 
+## Bibliothèques utilisées:
+- numpy - pour des calculs
+- scipy - pour les équations différentielles
+- tkinter - pour l'interface graphique
+- customtkinter - pour l'interface graphique
+- random - pour le mouvement aléatoire des électrons/protons/neutrons
+- inspect - pour la manipulation de variables
+- matplotlib - pour tracer
+
 ## L'atome
 
 Visualiser la structure des éléments chimiques ainsi que leurs propriétés d'après le nombre Z.
