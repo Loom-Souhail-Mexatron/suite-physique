@@ -1,0 +1,23 @@
+
+@Circuit RLC Forcé-
+
+Veuillez entrer des valuers convenables (nombres) dans les cases.
+
+Vous pouvez:
+
+-Changer les paramétres.
+-Tracer la courbe de l'intensité du circuit.
+$./res/guidy/tracei.png
+-Tracer la courbe de la charge dans le condensateur.
+$./res/guidy/traceq.png
+Choisissez un rang des fréquences pour:
+$./res/guidy/freqrang.png
+-Tracer les amplitudes suivant un rang des frequences qui vous choisissez.
+
+$./res/guidy/traceamp.png
+-Tracer les déphasages suivant un rang des frequences qui vous choisissez.
+
+$./res/guidy/tracephi.png
+@!!! Attention !!!£red
+
+Pour de petites valeurs, la résolution de l'équation differentielle prendra plus du temps!

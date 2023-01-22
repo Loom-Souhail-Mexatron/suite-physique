@@ -1,0 +1,20 @@
+@Bonjour au "Suite de Physique"!-£purple
+ 
+Réalisé par:
+Souhaïl Belhassen - Programme et Art 
+Oussama Hadded - Art et Art Conceptuel 
+ 
+Pour commencer, merci de choisir une des options suivantes!
+@L'atome_
+$./res/electron.png;$./res/proton.png;$./res/neutron.png
+Visualiser la strucutre des éléments chimiques ainsi que leurs propriétés.
+@Gravitation_
+$./res/lucyna.png;$./res/soleil.png;$./res/terre.png
+Simuler l'interaction gravitationnelle entre les corps massives.
+Vous pouvez aussi ajouter des corps en cliquant.
+@Circuit RLC_
+$./res/condensateur.png;$./res/generateur.png;$./res/resistor.png
+Contenant les circuits RC, RLC libre et RLC forcé.
+Circuit RC: Tracer la tension, l'intensité et la charge.
+Circuit RLC libre: Tracer l'intensité, la charge et l'énergie.
+Circuit RLC forcé: Tracer l'intensité et la charge, ainsi que les amplitudes et les dephases d'après un rang de fréquences.

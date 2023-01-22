@@ -1,0 +1,306 @@
+1 H Hydrogène : 1s1
+1s1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+1	 	 	 	 	 	 
+2 He Hélium : 1s2
+1s2	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	 	 	 	 	 	 
+3 Li Lithium : 1s2 2s1
+1s2	2s1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	1	 	 	 	 	 
+4 Be Béryllium : 1s2 2s2
+1s2	2s2	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	2	 	 	 	 	 
+5 B Bore : 1s2 2s2 2p1
+1s2	2s2	2p1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	3	 	 	 	 	 
+6 C Carbone : 1s2 2s2 2p2
+1s2	2s2	2p2	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	4	 	 	 	 	 
+7 N Azote : 1s2 2s2 2p3
+1s2	2s2	2p3	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	5	 	 	 	 	 
+8 O Oxygène : 1s2 2s2 2p4
+1s2	2s2	2p4	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	6	 	 	 	 	 
+9 F Fluor : 1s2 2s2 2p5
+1s2	2s2	2p5	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	7	 	 	 	 	 
+10 Ne Néon : 1s2 2s2 2p6
+1s2	2s2	2p6	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	 	 	 	 	 
+11 Na Sodium : [Ne] 3s1
+1s2	2s2	2p6	3s1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	1	 	 	 	 
+12 Mg Magnésium : [Ne] 3s2
+1s2	2s2	2p6	3s2	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	2	 	 	 	 
+13 Al Aluminium : [Ne] 3s2 3p1
+1s2	2s2	2p6	3s2	3p1	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	3	 	 	 	 
+14 Si Silicium : [Ne] 3s2 3p2
+1s2	2s2	2p6	3s2	3p2	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	4	 	 	 	 
+15 P Phosphore : [Ne] 3s2 3p3
+1s2	2s2	2p6	3s2	3p3	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	5	 	 	 	 
+16 S Soufre : [Ne] 3s2 3p4
+1s2	2s2	2p6	3s2	3p4	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	6	 	 	 	 
+17 Cl Chlore : [Ne] 3s2 3p5
+1s2	2s2	2p6	3s2	3p5	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	7	 	 	 	 
+18 Ar Argon : [Ne] 3s2 3p6
+1s2	2s2	2p6	3s2	3p6	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	8	 	 	 	 
+19 K Potassium : [Ar] 4s1
+1s2	2s2	2p6	3s2	3p6	 	4s1	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	8	1	 	 	 
+20 Ca Calcium : [Ar] 4s2
+1s2	2s2	2p6	3s2	3p6	 	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	8	2	 	 	 
+21 Sc Scandium : [Ar] 3d1 4s2
+1s2	2s2	2p6	3s2	3p6	3d1	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	9	2	 	 	 
+22 Ti Titane : [Ar] 3d2 4s2
+1s2	2s2	2p6	3s2	3p6	3d2	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	10	2	 	 	 
+23 V Vanadium : [Ar] 3d3 4s2
+1s2	2s2	2p6	3s2	3p6	3d3	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	11	2	 	 	 
+24 Cr Chrome : [Ar] 3d5 4s1
+1s2	2s2	2p6	3s2	3p6	3d5	4s1	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	13	1	 	 	 
+25 Mn Manganèse : [Ar] 3d5 4s2
+1s2	2s2	2p6	3s2	3p6	3d5	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	13	2	 	 	 
+26 Fe Fer : [Ar] 3d6 4s2
+1s2	2s2	2p6	3s2	3p6	3d6	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	14	2	 	 	 
+27 Co Cobalt : [Ar] 3d7 4s2
+1s2	2s2	2p6	3s2	3p6	3d7	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	15	2	 	 	 
+28 Ni Nickel : [Ar] 3d8 4s2
+1s2	2s2	2p6	3s2	3p6	3d8	4s2	 	 	 	 	 	 	 	 	 	 	 
+2	8	16	2	 	 	 
+29 Cu Cuivre : [Ar] 3d10 4s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s1	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	1	 	 	 
+30 Zn Zinc : [Ar] 3d10 4s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	 	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	2	 	 	 
+31 Ga Gallium : [Ar] 3d10 4s2 4p1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p1	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	3	 	 	 
+32 Ge Germanium : [Ar] 3d10 4s2 4p2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p2	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	4	 	 	 
+33 As Arsenic : [Ar] 3d10 4s2 4p3
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p3	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	5	 	 	 
+34 Se Sélénium : [Ar] 3d10 4s2 4p4
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p4	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	6	 	 	 
+35 Br Brome : [Ar] 3d10 4s2 4p5
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p5	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	7	 	 	 
+36 Kr Krypton : [Ar] 4s2 3d10 4p6
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	 	 	 	 	 	 	 	 	 	 	 
+2	8	18	8	 	 	 
+37 Rb Rubidium : [Kr] 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	 	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	8	1	 	 
+38 Sr Strontium : [Kr] 5s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	 	 	5s2	 	 	 	 	 	 	 	 
+2	8	18	8	2	 	 
+39 Y Yttrium : [Kr] 4d1 5s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d1	 	5s2	 	 	 	 	 	 	 	 
+2	8	18	9	2	 	 
+40 Zr Zirconium : [Kr] 4d2 5s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d2	 	5s2	 	 	 	 	 	 	 	 
+2	8	18	10	2	 	 
+41 Nb Niobium : [Kr] 4d4 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d4	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	12	1	 	 
+42 Mo Molybdène : [Kr] 4d5 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d5	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	13	1	 	 
+43 Tc Technétium : [Kr] 4d5 5s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d5	 	5s2	 	 	 	 	 	 	 	 
+2	8	18	13	2	 	 
+44 Ru Ruthénium : [Kr] 4d7 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d7	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	15	1	 	 
+45 Rh Rhodium : [Kr] 4d8 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d8	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	16	1	 	 
+46 Pd Palladium : [Kr] 4d10
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	 	 	 	 	 	 	 	 	 
+2	8	18	18	 	 	 
+47 Ag Argent : [Kr] 4d10 5s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s1	 	 	 	 	 	 	 	 
+2	8	18	18	1	 	 
+48 Cd Cadmium : [Kr] 4d10 5s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	 	 	 	 	 	 	 	 
+2	8	18	18	2	 	 
+49 In Indium : [Kr] 4d10 5s2 5p1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p1	 	 	 	 	 	 	 
+2	8	18	18	3	 	 
+50 Sn Étain : [Kr] 4d10 5s2 5p2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p2	 	 	 	 	 	 	 
+2	8	18	18	4	 	 
+51 Sb Antimoine : [Kr] 4d10 5s2 5p3
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p3	 	 	 	 	 	 	 
+2	8	18	18	5	 	 
+52 Te Tellure : [Kr] 4d10 5s2 5p4
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p4	 	 	 	 	 	 	 
+2	8	18	18	6	 	 
+53 I Iode : [Kr] 4d10 5s2 5p5
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p5	 	 	 	 	 	 	 
+2	8	18	18	7	 	 
+54 Xe Xénon : [Kr] 4d10 5s2 5p6
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p6	 	 	 	 	 	 	 
+2	8	18	18	8	 	 
+55 Cs Césium : [Xe] 6s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p6	 	 	6s1	 	 	 	 
+2	8	18	18	8	1	 
+56 Ba Baryum : [Xe] 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	18	8	2	 
+57 La Lanthane : [Xe] 5d1 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	 	5s2	5p6	5d1	 	6s2	 	 	 	 
+2	8	18	18	9	2	 
+58 Ce Cérium : [Xe] 4f1 5d1 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f1	5s2	5p6	5d1	 	6s2	 	 	 	 
+2	8	18	19	9	2	 
+59 Pr Praséodyme : [Xe] 4f3 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f3	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	21	8	2	 
+60 Nd Néodyme : [Xe] 4f4 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f4	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	22	8	2	 
+61 Pm Prométhium : [Xe] 4f5 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f5	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	23	8	2	 
+62 Sm Samarium : [Xe] 4f6 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f6	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	24	8	2	 
+63 Eu Europium : [Xe] 4f7 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f7	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	25	8	2	 
+64 Gd Gadolinium : [Xe] 4f7 5d1 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f7	5s2	5p6	5d1	 	6s2	 	 	 	 
+2	8	18	25	9	2	 
+65 Tb Terbium : [Xe] 4f9 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f9	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	27	8	2	 
+66 Dy Dysprosium : [Xe] 4f10 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f10	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	28	8	2	 
+67 Ho Holmium : [Xe] 4f11 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f11	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	29	8	2	 
+68 Er Erbium : [Xe] 4f12 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f12	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	30	8	2	 
+69 Tm Thulium : [Xe] 4f13 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f13	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	31	8	2	 
+70 Yb Ytterbium : [Xe] 4f14 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	 	 	6s2	 	 	 	 
+2	8	18	32	8	2	 
+71 Lu Lutécium : [Xe] 4f14 5d1 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d1	 	6s2	 	 	 	 
+2	8	18	32	9	2	 
+72 Hf Hafnium : [Xe] 4f14 5d2 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d2	 	6s2	 	 	 	 
+2	8	18	32	10	2	 
+73 Ta Tantale : [Xe] 4f14 5d3 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d3	 	6s2	 	 	 	 
+2	8	18	32	11	2	 
+74 W Tungstène : [Xe] 4f14 5d4 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d4	 	6s2	 	 	 	 
+2	8	18	32	12	2	 
+75 Re Rhénium : [Xe] 4f14 5d5 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d5	 	6s2	 	 	 	 
+2	8	18	32	13	2	 
+76 Os Osmium : [Xe] 4f14 5d6 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d6	 	6s2	 	 	 	 
+2	8	18	32	14	2	 
+77 Ir Iridium : [Xe] 4f14 5d7 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d7	 	6s2	 	 	 	 
+2	8	18	32	15	2	 
+78 Pt Platine : [Xe] 4f14 5d9 6s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d9	 	6s1	 	 	 	 
+2	8	18	32	17	1	 
+79 Au Or : [Xe] 4f14 5d10 6s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s1	 	 	 	 
+2	8	18	32	18	1	 
+80 Hg Mercure : [Xe] 4f14 5d10 6s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	 	 	 	 
+2	8	18	32	18	2	 
+81 Tl Thallium : [Xe] 4f14 5d10 6s2 6p1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p1	 	 	 
+2	8	18	32	18	3	 
+82 Pb Plomb : [Xe] 4f14 5d10 6s2 6p2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p2	 	 	 
+2	8	18	32	18	4	 
+83 Bi Bismuth : [Xe] 4f14 5d10 6s2 6p3
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p3	 	 	 
+2	8	18	32	18	5	 
+84 Po Polonium : [Xe] 4f14 5d10 6s2 6p4
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p4	 	 	 
+2	8	18	32	18	6	 
+85 At Astate : [Xe] 4f14 5d10 6s2 6p5
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p5	 	 	 
+2	8	18	32	18	7	 
+86 Rn Radon : [Xe] 4f14 5d10 6s2 6p6
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p6	 	 	 
+2	8	18	32	18	8	 
+87 Fr Francium : [Rn] 7s1
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p6	 	7s1	 
+2	8	18	32	18	8	1
+88 Ra Radium : [Rn] 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p6	 	7s2	 
+2	8	18	32	18	8	2
+89 Ac Actinium : [Rn] 6d1 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p6	6d1	7s2	 
+2	8	18	32	18	9	2
+90 Th Thorium : [Rn] 6d2 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	 	6s2	6p6	6d2	7s2	 
+2	8	18	32	18	10	2
+91 Pa Protactinium : [Rn] 5f2 6d1 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f2	6s2	6p6	6d1	7s2	 
+2	8	18	32	20	9	2
+92 U Uranium : [Rn] 5f3 6d1 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f3	6s2	6p6	6d1	7s2	 
+2	8	18	32	21	9	2
+93 Np Neptunium : [Rn] 5f4 6d1 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f4	6s2	6p6	6d1	7s2	 
+2	8	18	32	22	9	2
+94 Pu Plutonium : [Rn] 5f6 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f6	6s2	6p6	 	7s2	 
+2	8	18	32	24	8	2
+95 Am Américium : [Rn] 5f7 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f7	6s2	6p6	 	7s2	 
+2	8	18	32	25	8	2
+96 Cm Curium : [Rn] 5f7 6d1 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f7	6s2	6p6	6d1	7s2	 
+2	8	18	32	25	9	2
+97 Bk Berkelium : [Rn] 5f9 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f9	6s2	6p6	 	7s2	 
+2	8	18	32	27	8	2
+98 Cf Californium : [Rn] 5f10 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f10	6s2	6p6	 	7s2	 
+2	8	18	32	28	8	2
+99 Es Einsteinium : [Rn] 5f11 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f11	6s2	6p6	 	7s2	 
+2	8	18	32	29	8	2
+100 Fm Fermium : [Rn] 5f12 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f12	6s2	6p6	 	7s2	 
+2	8	18	32	30	8	2
+101 Md Mendelevium : [Rn] 5f13 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f13	6s2	6p6	 	7s2	 
+2	8	18	32	31	8	2
+102 No Nobelium : [Rn] 5f14 7s2
+1s2	2s2	2p6	3s2	3p6	3d10	4s2	4p6	4d10	4f14	5s2	5p6	5d10	5f14	6s2	6p6	 	7s2	 
+2	8	18	32	32	8	2

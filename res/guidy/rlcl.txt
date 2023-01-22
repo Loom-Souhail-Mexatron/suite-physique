@@ -1,0 +1,18 @@
+
+@Circuit RLC Libre-
+
+Veuillez entrer des valuers convenables (nombres) dans les cases.
+
+Vous pouvez:
+
+-Changer les paramétres.
+-Tracer la courbe de l'intensité du circuit.
+$./res/guidy/tracei.png
+-Tracer la courbe de la charge dans le condensateur.
+$./res/guidy/traceq.png
+-Tracer la courbe de l'énergie magnétique et électrostatique.
+$./res/guidy/tracee.png
+
+@!!! Attention !!!£red
+
+Pour de petites valeurs, la résolution de l'équation differentielle prendra plus du temps!

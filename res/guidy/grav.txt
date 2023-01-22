@@ -1,0 +1,15 @@
+
+@Gravitation-
+
+Dans le vide, vous pouvez cliquer n'importe où pour
+créer des objets avec une masse et une vitesse initiale
+que vous spécifiez dans ces cases:
+$./res/guidy/masse.png;$./res/guidy/vinit.png
+
+Vous pouvez passer au système solaire ou au système
+Terre Lune avec la boîte d'options au milieu en bas.
+Là, vous pouvez changer la vitesse de la simulation:
+$./res/guidy/ss1.png;$./res/guidy/ss2.png
+
+Le temps écoulé est indiqué en haut à gauche:
+$./res/guidy/tej.png 

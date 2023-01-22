@@ -1,0 +1,27 @@
+
+@L'atome-
+
+En précisant le nombre Z, le programme vous donne des informations sur cet atome.
+ 
+$./res/guidy/choixz.png
+
+Example: L'oxygène_
+C'est un élément essentiel pour les êtres vivants.
+Son nombre atomique est Z = 8, ayant A = 16, pour l'isotope le plus abondant.
+On écrit: (en bas à gauche)
+$./res/guidy/ocase.png
+Pour la modélisation, l'oxygène est un sphère rouge: (en bas à droite)
+$./res/guidy/ocpk.png
+Pour sa famille au tableau périodique: (en haut à gauche)
+$./res/guidy/ofamille.png
+Pour les liaisons simples: (en haut à droite)
+$./res/guidy/olewis.png
+Vous pouvez aussi faire une animation de la nature aléatoire
+du mouvement chez les électrons ainsi que les mouvements
+des protons/neutrons: (en bas à droite)
+$./res/guidy/animer.png
+ -
+ -
+ -
+ -
+ -
