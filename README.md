@@ -3,12 +3,11 @@ Ce programme permet la visualisation de la structure des atomes et simulation de
 
 ## Bibliothèques utilisées:
 - numpy - pour des calculs
-- scipy - pour les équations différentielles
 - tkinter - pour l'interface graphique
 - customtkinter - pour l'interface graphique
 - random - pour le mouvement aléatoire des électrons/protons/neutrons
 - inspect - pour la manipulation de variables
-- matplotlib - pour tracer
+- matplotlib - pour tracer les courbes
 
 ## L'atome
 
@@ -66,3 +65,19 @@ Tracer l'intensité et la charge, ainsi que les amplitudes et les déphasages d'
 ![Figure_q](https://user-images.githubusercontent.com/54601024/213918037-81ec67cb-6573-45a6-a7a6-ce51a0a14d17.png)
 ![Figure_amp](https://user-images.githubusercontent.com/54601024/213918051-9cf2d7d5-1356-4b48-b270-00312a90a94c.png)
 ![Figure_phi](https://user-images.githubusercontent.com/54601024/213918043-44edbecf-ee12-444e-ae39-20279910fd01.png)
+
+Voici les solutions résolues manuellement utilisées pour le système, en utilisant la transformée de Laplace et l'inverse pour trouver l'équation décrivant le système.
+
+![image](https://user-images.githubusercontent.com/54601024/227245975-b7315eb1-d990-4db6-b48e-e980f1caab20.png)
+
+
+## Les Oscillations Mécaniques
+
+![oscmech](https://user-images.githubusercontent.com/54601024/227245208-5ce732a7-a4e8-49ac-b8b7-2c133028faf1.png)
+
+En précisant le coefficient du frottement, la masse et le raideur, vous pouvez cliquer "Simuler" ou tracer l'énergie.
+En suite, cliquez sur "Arrêter" afin de réinitialiser le système.
+Vous pouvez cliquer et faire glisser pour définir la position initiale
+
+![OscHarmo](https://user-images.githubusercontent.com/54601024/227246388-dfafb402-ba81-48b8-9f88-9393d00bc39d.png)
+![OscPsPer](https://user-images.githubusercontent.com/54601024/227246419-0084d41b-a0b3-4874-b221-d3ed5cc07f7a.png)
