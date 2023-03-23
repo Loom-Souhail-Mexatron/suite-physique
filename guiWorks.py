@@ -135,7 +135,7 @@ def MAIN_ATOM(mainy):
             elemVal.configure(text=str(currVal)+" électron(s)")
             elemsBox.set("1-Hydrogène")
             print("Hydrogène 1")
-            
+      
     def elemsBoxy(elemy):
         #Ztextbox.delete("0.0","end")
         #Ztextbox.insert("0.0",elemy.split("-")[0])
@@ -207,7 +207,7 @@ def MAIN_ATOM(mainy):
                 nd1 += 1
             else:
                 nd2 += 1
-
+    Zwork(1)
 
     def updateGraphics():
         global t, dessN, dessZ, currZ, currN, NZ

@@ -1,3 +1,4 @@
+
 @Bonjour au "Suite de Physique"!-£purple
  
 Réalisé par:
@@ -12,9 +13,15 @@ Visualiser la strucutre des éléments chimiques ainsi que leurs propriétés.
 $./res/lucyna.png;$./res/soleil.png;$./res/terre.png
 Simuler l'interaction gravitationnelle entre les corps massives.
 Vous pouvez aussi ajouter des corps en cliquant.
+@Mécanique_
+$./res/border.png;$./res/spring.png;$./res/box.png
+Simuler les oscillations mécaniques selon le coefficient du frottement, la masse et le raideur.
 @Circuit RLC_
 $./res/condensateur.png;$./res/generateur.png;$./res/resistor.png
 Contenant les circuits RC, RLC libre et RLC forcé.
 Circuit RC: Tracer la tension, l'intensité et la charge.
 Circuit RLC libre: Tracer l'intensité, la charge et l'énergie.
 Circuit RLC forcé: Tracer l'intensité et la charge, ainsi que les amplitudes et les dephases d'après un rang de fréquences.
+
+
+.

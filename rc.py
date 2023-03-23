@@ -2,8 +2,7 @@ from tkinter import *
 import customtkinter as ctk
 import matplotlib.pyplot as plt
 from matplotlib.ticker import EngFormatter
-from scipy.integrate import solve_ivp
-from scipy.signal import argrelextrema
+from Sou_Sapphire_Solver import DIFF_SOLVE, EXTREMAS, LAPLACE_SOLVE
 from PIL import Image,ImageTk
 import numpy as np
 import guideManager as gum
@@ -96,11 +95,17 @@ def MAIN_RLC_LIBRE(mainy):
     ctk.CTkLabel(app,text="Ω",font=(fontName,fontSize)).grid(row=4,column=2,pady=PADY_CONST,padx=PADX_CONST)
     
     def unpack_values():
-        R = float(entryResistance.get())
-        r = float(entryResInducta.get())
-        C = float(entryCapacitance.get())
-        L = float(entryInductance.get())
-        E = float(entryFEM.get())
+        try:
+            R = float(entryResistance.get())
+            r = float(entryResInducta.get())
+            C = float(entryCapacitance.get())
+            L = float(entryInductance.get())
+            E = float(entryFEM.get())
+            assert ((R+r)>=0) and (C>0) and (L>0) and (E>0)
+        except:
+            print("Merci d'entrer des valuers valides et positives")
+            print("Utilisant les valeurs par défaut...")
+            return [0.1,1,1,12]
         return [R+r,C,L,E]
 
     def diff_q(t,y):
@@ -116,19 +121,25 @@ def MAIN_RLC_LIBRE(mainy):
         t_span = (0, 5*2*np.pi*np.sqrt(L*C))
 
         RLC_diff = r'$L\frac{\mathrm{d^2} Q(t)}{\mathrm{d} t^2}+R \frac{\mathrm{d} Q(t)}{\mathrm{d} t}+\frac{1}{C}Q(t)=0$'
-        sol_q = solve_ivp(diff_q, t_span, y0, method='RK23')
+        #sol_q = solve_ivp(diff_q, t_span, y0, method='RK23')
 
-        q_t = sol_q.t
-        sol_q0 = sol_q.y[0]
-        q_prime = sol_q.y[1]
+        #q_t = sol_q.t
+        #sol_q0 = sol_q.y[0]
+        #q_prime = sol_q.y[1]
+
+        q_t = np.linspace(t_span[0],t_span[1],400)
+        diff_qsol = DIFF_SOLVE(L,R,1/C,C*E)
+        sol_q0 = np.array([diff_qsol(t) for t in q_t])
 
         plt.figure()
         plt.title("Charge au Condensateur")
         XY_Units('s','C','Temps','Charge')
         plt.plot(q_t,sol_q0,label=RLC_diff,color='red')
         plt.ylim(min(sol_q0),max(sol_q0))
-        extremas = list(argrelextrema(sol_q0, np.greater))[0]
-        minimas  = list(argrelextrema(sol_q0, np.less))[0]
+        #extremas = list(argrelextrema(sol_q0, np.greater))[0]
+        #minimas  = list(argrelextrema(sol_q0, np.less))[0]
+        extremas = EXTREMAS(sol_q0)[0]
+        minimas = EXTREMAS(sol_q0)[1]
 
         '''engFormatted = EngFormatter()(tensionCircuit*(1-np.exp(-i)))
         engSplit = engFormatted.split('.')
@@ -181,14 +192,17 @@ def MAIN_RLC_LIBRE(mainy):
     def plot_i():
         R, C, L, E = unpack_values()
 
-        y0 = [C*E, 0]
         t_span = (0, 5*2*np.pi*np.sqrt(L*C))
 
         RLC_diff = r'$L\frac{\mathrm{d^2} i(t)}{\mathrm{d} t^2}+R \frac{\mathrm{d} i(t)}{\mathrm{d} t}+\frac{1}{C}i(t)=0$'
-        sol_q = solve_ivp(diff_q, t_span, y0, method='RK23')
+        #sol_q = solve_ivp(diff_q, t_span, y0, method='RK23')
 
-        q_t = sol_q.t
-        sol_i0 = sol_q.y[1] #I = Q'
+        #q_t = sol_q.t
+        #sol_i0 = sol_q.y[1] #I = Q'
+
+        q_t = np.linspace(t_span[0],t_span[1],400)
+        diff_isol = DIFF_SOLVE(L,R,1/C,C*E,derivative=True)
+        sol_i0 = np.array([diff_isol(t) for t in q_t])
 
         plt.figure()
         plt.title("Intensité au circuit")
@@ -217,10 +231,20 @@ def MAIN_RLC_LIBRE(mainy):
             #E_e = E*2*np.pi*np.abs(np.cos(C*E*t/antiF)**2)/C
             E_t = E_m + E_e
         else:       
-            sol_q = solve_ivp(diff_q, t_span, y0, method='BDF')
+            '''sol_q = solve_ivp(diff_q, t_span, y0, method='BDF')
             t = sol_q.t
             E_m = 0.5*L*(sol_q.y[1]**2)
             E_e = 0.5*(sol_q.y[0]**2)/C
+            E_t = E_m + E_e
+            '''
+            q_t = np.linspace(t_span[0],t_span[1],400)
+            diff_qsol = DIFF_SOLVE(L,R,1/C,C*E,False)
+            sol_q = np.array([diff_qsol(t) for t in q_t])
+            diff_isol = DIFF_SOLVE(L,R,1/C,C*E,True)
+            sol_i = np.array([diff_isol(t) for t in q_t])
+            t = q_t
+            E_m = 0.5*L*((sol_i/2)**2)
+            E_e = 0.5*(sol_q**2)/C
             E_t = E_m + E_e
         plt.figure()
         plt.plot(t,E_m,color='red', label='Energie Magnétique')
@@ -250,7 +274,7 @@ def MAIN_RLC_FORCE(mainy):
     ctk.set_default_color_theme("dark-blue")
 
     app = ctk.CTkToplevel(mainy)
-    app.geometry("750x475")
+    app.geometry("800x475")
     app.resizable(False,False)
     app.title("Circuit RLC Forcé")
     gum.createGuideWindow(app, "Guide: Circuit RLC Forcé","rlcf.txt")
@@ -371,13 +395,19 @@ def MAIN_RLC_FORCE(mainy):
 
 
     def unpack_values():
-        R = float(entryResistance.get())
-        r = float(entryInductRes.get())
-        C = float(entryCapacitance.get())
-        L = float(entryInductance.get())
-        f = float(entryN.get())
-        Q0 = float(entryQ0.get())
-        Um = float(entryUm.get())
+        try:
+            R = float(entryResistance.get())
+            r = float(entryInductRes.get())
+            C = float(entryCapacitance.get())
+            L = float(entryInductance.get())
+            f = float(entryN.get())
+            Q0 = float(entryQ0.get())
+            Um = float(entryUm.get())
+            assert ((R+r)>=0) and (C>0)and(L>0)and(Um>0)and(f>0)
+        except:
+            print("Merci d'entrer des valuers valides et positives")
+            print("Utilisant les valeurs par défaut...")
+            return [0.1,0,5e-2,1e-2,1e-3,5,10]
         return [C, Q0, R, L, r, Um, f]
     #C, Q0, R, L, r, Um, f = unpack_values()
 
@@ -404,13 +434,12 @@ def MAIN_RLC_FORCE(mainy):
         t_span = (0,10/f)
         y0 = [Q0,0.0]
         
-        qSol = solve_ivp(diff_i, t_span, y0, method='BDF')
-        t = qSol.t
-        i = qSol.y[0]
+        TIME = np.linspace(t_span[0],t_span[1],400)
+        solI = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0,1)(TIME))
 
         plt.figure()
         plt.title("Intensité au Circuit")
-        plt.plot(t,i,color='red')
+        plt.plot(TIME,solI,color='red')
         XY_Units('s','A','Temps','Intensité')
         plt.grid()
         plt.show()
@@ -419,15 +448,31 @@ def MAIN_RLC_FORCE(mainy):
         C, Q0, R, L, r, Um, f = unpack_values()
         t_span = (0,10/f)
         y0 = [Q0,0.0]
-        
-        qSol = solve_ivp(diff_q, t_span, y0, method='BDF')
-        t = qSol.t
-        i = qSol.y[0]
+
+        TIME = np.linspace(t_span[0],t_span[1],400)
+        solQ = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0)(TIME))
 
         plt.figure()
         plt.title("Charge au Condensateur")
-        plt.plot(t,i,color='purple')
+        plt.plot(TIME,solQ,color='purple',label='Charge')
         XY_Units('s','C','Temps','Charge')
+        plt.grid()
+        plt.show()
+
+    def plot_uc():
+        C, Q0, R, L, r, Um, f = unpack_values()
+        t_span = (0,10/f)
+        y0 = [Q0,0.0]
+
+        TIME = np.linspace(t_span[0],t_span[1],400)
+        solQ = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0)(TIME))
+        
+        plt.figure()
+        plt.title("Tension au Condensateur")
+        plt.plot(TIME,solQ/C,color='purple',label='Tension')
+        plt.plot(TIME,Um*np.sin(2*np.pi*f*TIME),color='green',label='Tension du Générateur')
+        XY_Units('s','V','Temps','Tension')
+        plt.legend()
         plt.grid()
         plt.show()
 
@@ -482,6 +527,8 @@ def MAIN_RLC_FORCE(mainy):
     btn_i.grid(row=10,column=5)
     btn_q   = ctk.CTkButton(app,text="Tracer la charge", font=(fontName,fontSize),command=plot_q)
     btn_q.grid(row=10,column=7)
+    btn_uc  = ctk.CTkButton(app,text="Tracer la tension", font=(fontName,fontSize),command=plot_uc)
+    btn_uc.grid(row=10,column=6)
     btn_im  = ctk.CTkButton(app,text="Tracer les amplitudes", font=(fontName,fontSize),command=plot_im)
     btn_im.grid(row=11,column=5)
     btn_phi = ctk.CTkButton(app,text="Tracer les déphasages", font=(fontName,fontSize),command=plot_phi)

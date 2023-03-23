@@ -3,6 +3,7 @@ import customtkinter as ctk
 import rc
 import guiWorks
 import nbodyTk
+import mech
 import guideManager as gum
 #import pyi_splash
 
@@ -26,13 +27,17 @@ def GRAV_PROG():
 def RC_PROG():
     rc.MAIN_RC(app)
 
+def MECH_PROG():
+    mech.MAIN_MECH(app)
 #pyi_splash.close()
 
 ATOM = ctk.CTkButton(app, text="L'atome",command=ATOM_PROG,font=("Arial", 25),width=250,height=30)
-ATOM.place(relx=0.5,rely=0.25,anchor=S)
+ATOM.place(relx=0.5,rely=0.2,anchor=S)
 GRAV = ctk.CTkButton(app, text="Gravitation", command=GRAV_PROG,font=("Arial", 25),width=250,height=30)
-GRAV.place(relx=0.5,rely=0.5,anchor=S)
+GRAV.place(relx=0.5,rely=0.4,anchor=S)
 COND = ctk.CTkButton(app, text="Circuit RC",command=RC_PROG,font=("Arial", 25),width=250,height=30)
-COND.place(relx=0.5,rely=0.75,anchor=S)
+COND.place(relx=0.5,rely=0.6,anchor=S)
+COND = ctk.CTkButton(app, text="Mécanique",command=MECH_PROG,font=("Arial", 25),width=250,height=30)
+COND.place(relx=0.5,rely=0.8,anchor=S)
 
 app.mainloop()

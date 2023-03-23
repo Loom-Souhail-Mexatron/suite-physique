@@ -1,0 +1,16 @@
+
+@Mécanique-
+
+En précisant le coefficient du frottement, la masse et le raideur, vous pouvez cliquer "Simuler" ou tracer l'énergie.
+En suite, cliquez sur "Arrêter" afin de réinitialiser le système.
+Vous pouvez cliquer et faire glisser pour définir la position initiale
+$./res/guidy/boxdiag.png
+Il y a 3 cas possibles:
+Sous-amorti:-
+Régime pseudo périodique (h²<4mk)
+Critiquement amorti:-
+Régime critique (h²=4mk)
+Suramorti:-
+Régime apériodique (h²>4mk)
+Sans amortissement:-
+Régime harmonique (h=0)
