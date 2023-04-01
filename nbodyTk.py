@@ -7,6 +7,7 @@ import guideManager as gum
 bodies = []
 didReset = False
 canPlace = True
+guide = None
 
 #1 period = 1 seconde
 orbPerCoff = 86400
@@ -25,7 +26,7 @@ speedCoffs  = [1              ,3600             ,86400            ,2592000      
 speed = 1
 
 def MAIN_GRAV(mainy):
-    global bodies, didReset, speed
+    global bodies, didReset, speed, guide
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
@@ -36,7 +37,6 @@ def MAIN_GRAV(mainy):
     h0 = 600
     app.geometry(str(w0)+"x"+str(h0)+'+50+50')
     app.title("Gravitation")
-    gum.createGuideWindow(app, "Guide: Gravitation","grav.txt")
 
     canvas = tk.Canvas(app, width=w0, height=h0,bg="#1A1A1A",relief="ridge")
     canvas.pack()
@@ -383,12 +383,15 @@ def MAIN_GRAV(mainy):
     tempEcoule = ctk.CTkLabel(app, text="Temps écoulé: ")
     tempEcouVa = ctk.CTkLabel(app, text="0 jour(s)")
 
-    def systemTemplate(template):
+    reinitVide = ctk.CTkButton(master=app, text="Réinitialiser")
+    
+    def systemTemplate(template='Vide'):
         global bodies, didReset, speed, canPlace
 
         speedBox.place(relx=-0.5,rely=-0.05,anchor=tk.CENTER)
         tempEcoule.place(relx=-0.5,rely=-0.05,anchor=tk.CENTER)
         tempEcouVa.place(relx=-0.5,rely=-0.05,anchor=tk.CENTER)
+        reinitVide.place(relx=-0.5,rely=-0.5,anchor=tk.CENTER)
         
         cpc.place(relx=0.025, rely=0.8,anchor=tk.W)
         massLabel.place(relx=0.025, rely=0.85,anchor=tk.W)
@@ -412,8 +415,11 @@ def MAIN_GRAV(mainy):
 
         bodies = []
         canvas.delete("all")
-        
-        if template == "Carré":
+
+        if template == "Vide":
+            reinitVide.place(relx=0.95,rely=0.95,anchor=tk.E)
+            return 0
+        elif template == "Carré":
             a=40
             b=50
             p = 10
@@ -449,10 +455,11 @@ def MAIN_GRAV(mainy):
             j=0
             for i in planetsData:
                 e = (i[1]-i[0])/(i[1]+i[0])
-                d0x = i[0] * (1 - e**2) / (1 + e * np.cos(0))
-                d1x = i[0] * (1 - e**2) / (1 + e * np.cos(180))
-                d0y = i[0] * (1 - e**2) / (1 + e * np.cos(90))
-                d1y = i[0] * (1 - e**2) / (1 + e * np.cos(270))
+                aef = i[0] * (1 - e**2)
+                d0x = aef / (1 + e * np.cos(0))
+                d1x = aef / (1 + e * np.cos(180))
+                d0y = aef / (1 + e * np.cos(90))
+                d1y = aef / (1 + e * np.cos(270))
                 canvas.create_oval(cX-d1x-5, cY-d1y-5, cX+d0x, cY+d0y-5,outline='white',dash=(1,2),width=1)
                 sol.add_fb(FakeBody(i[0],i[1],i[2],i[3],sol,radii[j]*2,canvas,colour=colii[j]))
                 j+=1
@@ -478,10 +485,11 @@ def MAIN_GRAV(mainy):
             perLun = 360//2
             apoLun = 405//2
             e = (apoLun-perLun)/(apoLun+perLun)
-            d0x = perLun * (1 - e**2) / (1 + e * np.cos(0))
-            d1x = perLun * (1 - e**2) / (1 + e * np.cos(180))
-            d0y = perLun * (1 - e**2) / (1 + e * np.cos(90))
-            d1y = perLun * (1 - e**2) / (1 + e * np.cos(270))
+            aef = perLun * (1 - e**2)
+            d0x = aef / (1 + e * np.cos(0))
+            d1x = aef / (1 + e * np.cos(180))
+            d0y = aef / (1 + e * np.cos(90))
+            d1y = aef / (1 + e * np.cos(270))
             canvas.create_oval(cX-d1x, cY-d1y-5, cX+d0x, cY+d0y,outline='white',dash=(1,2),width=1)
             moon = FakeBody(perLun,apoLun,27.32166*orbPerCoff,0,terre,10,canvas,colour="#545E7B",img=LUN_IMG)
             terre.add_fb(moon)
@@ -524,13 +532,28 @@ def MAIN_GRAV(mainy):
     templatesBox.configure(width=200, height=30)
     templatesBox.set("Vide")
     templatesBox.place(relx=0.5, rely=0.95,anchor=tk.CENTER)
+    reinitVide.configure(command=systemTemplate)
+    reinitVide.place(relx=0.95,rely=0.95,anchor=tk.E)
 
+    
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: Gravitation","grav.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: Gravitation","grav.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=50,height=20,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(30, 30)))
+    gumButton.place(relx=0.35,rely=0.95,anchor=tk.E)
 
     canvas.bind("<Button 1>",clickDeal)
 
 
     dt = 0.1 #was 0.1
     simuler(app, w0, h0, canvas, dt)
+    return app
     app.mainloop()
 
 if __name__ == '__main__':

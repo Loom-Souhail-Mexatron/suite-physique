@@ -4,8 +4,7 @@
 Dans le vide, vous pouvez cliquer n'importe où pour
 créer des objets avec une masse et une vitesse initiale
 que vous spécifiez dans ces cases:
-$./res/guidy/masse.png;$./res/guidy/vinit.png
-
+¤./res/guidy/masse.png;$./res/guidy/vinit.png
 Vous pouvez passer au système solaire ou au système
 Terre Lune avec la boîte d'options au milieu en bas.
 Là, vous pouvez changer la vitesse de la simulation:

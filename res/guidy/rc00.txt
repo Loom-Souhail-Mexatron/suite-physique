@@ -1,14 +1,13 @@
 
 @Circuit RC-
 
-Veuillez entrer des valuers convenables (nombres) dans les cases.
-
+Veuillez entrer des valuers convenables dans les cases.
+La notation scientifique est acceptée : 1e2 = 10²
 Vous pouvez:
-
 -Changer les paramétres.
 -Tracer la courbe de l'intensité du circuit.
-$./res/guidy/tracei.png
+¤./res/guidy/tracei.png
 -Tracer la courbe du tension aux bornes du condensateur.
-$./res/guidy/traceu.png
+¤./res/guidy/traceu.png
 -Tracer la courbe de la charge dans le condensateur.
-$./res/guidy/traceq.png 
+¤./res/guidy/traceq.png 

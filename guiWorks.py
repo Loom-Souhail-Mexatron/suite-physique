@@ -13,18 +13,19 @@ NZ = [4,8,28,60]
 currN=0
 currZ=1
 currVal = 1
+guide = None
 
 
 def MAIN_ATOM(mainy):
-    global t, isTurning, elecs, currVal, currN, currZ
+    global t, isTurning, elecs, currVal, currN, currZ, guide
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
-
+    
     app = ctk.CTkToplevel(mainy)
     app.geometry("800x600+100+50")
     app.title("L'atome")
-    gum.createGuideWindow(app, "Guide: L'atome","atom.txt")
+
 
     canvas = Canvas(app,width=800,height=600,bg="#1A1A1A",relief="ridge")
     canvas.pack()
@@ -134,7 +135,7 @@ def MAIN_ATOM(mainy):
             currVal = 1
             elemVal.configure(text=str(currVal)+" électron(s)")
             elemsBox.set("1-Hydrogène")
-            print("Hydrogène 1")
+            print("Merci d'entrer une valuer valable (utilisant l'Hydrogène par défaut)")
       
     def elemsBoxy(elemy):
         #Ztextbox.delete("0.0","end")
@@ -150,10 +151,10 @@ def MAIN_ATOM(mainy):
     elemNature.configure(text='Non-métaux')
     elecs = [1]
 
-    zInput = ctk.CTkButton(master=app, text="Choisir le nombre Z", command=Zwork)
+    zInput = ctk.CTkButton(master=app, text="Choisir le nombre Z", font=("Arial",25), command=Zwork)
     zInput.place(relx=0.5, rely=0.95, anchor=CENTER)
 
-    button2 = ctk.CTkButton(master=app, text="Animer", command=toggleTurn, width = 100)
+    button2 = ctk.CTkButton(master=app, text="Animer", font=("Arial",25),command=toggleTurn, width = 100)
     button2.place(relx=0.975, rely=0.95, anchor=E)
 
     elemsBox = ctk.CTkOptionMenu(master=app,
@@ -273,10 +274,21 @@ def MAIN_ATOM(mainy):
             circle_dist(Cx, Cy, NZ[0], 2, 2, dessZ, dessN, NZ[0]*15/5)
         app.after(int(1e2), updateGraphics)
 
-        
-        
 
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: L'atome","atom.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: L'atome","atom.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=50,height=20,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(30, 30)))
+    gumButton.place(relx=0.95,rely=0.5,anchor=E)
+        
     app.after(int(1e3/2), updateGraphics)
+    return app
     app.mainloop()
 
 if __name__ == '__main__':

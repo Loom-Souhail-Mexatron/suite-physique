@@ -6,6 +6,7 @@ from Sou_Sapphire_Solver import DIFF_SOLVE, EXTREMAS, LAPLACE_SOLVE
 from PIL import Image,ImageTk
 import numpy as np
 import guideManager as gum
+guide = None
 
 def XY_Units(x,y,x_title,y_title,axes=None):
     if axes == None:
@@ -18,6 +19,8 @@ def XY_Units(x,y,x_title,y_title,axes=None):
     plt.ylabel(y_title + ' [' + y +']')
 
 def MAIN_RLC_LIBRE(mainy):
+    global guide
+    guide = None
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
@@ -26,7 +29,9 @@ def MAIN_RLC_LIBRE(mainy):
     app.geometry("750x350")
     app.resizable(False,False)
     app.title("Circuit RLC Libre")
-    gum.createGuideWindow(app, "Guide: Circuit RLC Libre","rlcl.txt")
+    
+
+    #app.mainloop()
 
     def RLCTools(choice):
         if choice == "RLC Forcé":
@@ -133,6 +138,7 @@ def MAIN_RLC_LIBRE(mainy):
 
         plt.figure()
         plt.title("Charge au Condensateur")
+        plt.gcf().canvas.manager.set_window_title(f'Charge pour R = {R}, C = {C}, L = {L} et E = {E}')
         XY_Units('s','C','Temps','Charge')
         plt.plot(q_t,sol_q0,label=RLC_diff,color='red')
         plt.ylim(min(sol_q0),max(sol_q0))
@@ -206,6 +212,7 @@ def MAIN_RLC_LIBRE(mainy):
 
         plt.figure()
         plt.title("Intensité au circuit")
+        plt.gcf().canvas.manager.set_window_title(f'Intensité pour R = {R}, C = {C}, L = {L} et E = {E}')
         XY_Units('s','A','Temps','Intensité')
         plt.plot(q_t,sol_i0,label=RLC_diff,color='green')
         plt.grid()
@@ -254,6 +261,7 @@ def MAIN_RLC_LIBRE(mainy):
         plt.legend()
 
         plt.title("Evolution Temporelle des Energies")
+        plt.gcf().canvas.manager.set_window_title(f'Enegie pour R = {R}, C = {C}, L = {L} et E = {E}')
         XY_Units('s','J','Temps','Energie')
 
         plt.show()
@@ -266,9 +274,23 @@ def MAIN_RLC_LIBRE(mainy):
     BTN_plot_e          = ctk.CTkButton(app, text="Tracer l'énergie", command=plot_e)
     BTN_plot_e.grid(row=5,column=5,pady=PADY_CONST,padx=PADX_CONST)
 
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: Circuit RLC Libre","rlcl.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: Circuit RLC Libre","rlcl.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=50,height=20,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(30, 30)))
+    gumButton.place(relx=0.2,rely=0.85,anchor='center')
+
     app.mainloop()
 
 def MAIN_RLC_FORCE(mainy):
+    global guide
+    guide = None
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
@@ -277,7 +299,7 @@ def MAIN_RLC_FORCE(mainy):
     app.geometry("800x475")
     app.resizable(False,False)
     app.title("Circuit RLC Forcé")
-    gum.createGuideWindow(app, "Guide: Circuit RLC Forcé","rlcf.txt")
+    
 
     def RLCTools(choice):
         if choice == "RLC Libre":
@@ -309,7 +331,7 @@ def MAIN_RLC_FORCE(mainy):
     t_span = (t0,tf)
 
     entryWidth = 150
-    PADY_CONST = 1
+    PADY_CONST = 2
     fontName = "Arial"
     fontSize = 16
 
@@ -318,7 +340,7 @@ def MAIN_RLC_FORCE(mainy):
     ctk.CTkLabel(app, text="Capacité C", font=(fontName,fontSize)).grid(row=1,column=0,pady=PADY_CONST)
     entryCapacitance    = ctk.CTkEntry(app, width=entryWidth,corner_radius=10)
     entryCapacitance.grid(row=1,column=1,pady=PADY_CONST)
-    entryCapacitance.insert(0,'0.1')
+    entryCapacitance.insert(0,'1e-2')
     ctk.CTkLabel(app, text="F", font=(fontName,fontSize)).grid(row=1,column=2,pady=PADY_CONST)
     
     ctk.CTkLabel(app, text="Charge Initiale Q0", font=(fontName,fontSize)).grid(row=2,column=0,pady=PADY_CONST)
@@ -359,7 +381,7 @@ def MAIN_RLC_FORCE(mainy):
     entryN.insert(0,'10')
     ctk.CTkLabel(app, text="Hz", font=(fontName,fontSize)).grid(row=8,column=2,pady=PADY_CONST)
 
-    ctk.CTkLabel(app, text="Pour les amplitudes et les phases:", font=(fontName,fontSize)).grid(row=9,column=0, columnspan=3,pady=PADY_CONST)
+    '''ctk.CTkLabel(app, text="Pour les amplitudes et les phases:", font=(fontName,fontSize)).grid(row=9,column=0, columnspan=3,pady=PADY_CONST)
     
     ctk.CTkLabel(app, text="Fréquence minimale", font=(fontName,fontSize)).grid(row=10,column=0,pady=PADY_CONST)
     entryNm             = ctk.CTkEntry(app, width=entryWidth,corner_radius=10)
@@ -371,7 +393,7 @@ def MAIN_RLC_FORCE(mainy):
     entryNn             = ctk.CTkEntry(app, width=entryWidth,corner_radius=10)
     entryNn.grid(row=11,column=1,pady=PADY_CONST)
     entryNn.insert(0,'40')
-    ctk.CTkLabel(app, text="Hz", font=(fontName,fontSize)).grid(row=11,column=2,pady=PADY_CONST)
+    ctk.CTkLabel(app, text="Hz", font=(fontName,fontSize)).grid(row=11,column=2,pady=PADY_CONST)'''
 
     '''#Dessiner le circuit
     generateurImg = ImageTk.PhotoImage(Image.open("./res/generateur.png").resize((128, 128), Image.Resampling.LANCZOS))
@@ -385,7 +407,7 @@ def MAIN_RLC_FORCE(mainy):
     #ctk.CTkImage(light_image=rlcfImg, dark_image=rlcfImg,size=(30,30))
     #ctk.CTkButton(app,image=rlcfImg)
     canvas = Canvas(app,bg='#1A1A1A')
-    canvas.grid(row=2,column=5,columnspan=5,rowspan=7,pady=PADY_CONST)
+    canvas.grid(row=1,column=5,columnspan=5,rowspan=7,pady=PADY_CONST)
     canvas.create_image(195,135,anchor='center',image=rlcfImg)
     
 
@@ -411,8 +433,8 @@ def MAIN_RLC_FORCE(mainy):
         return [C, Q0, R, L, r, Um, f]
     #C, Q0, R, L, r, Um, f = unpack_values()
 
-    def U_GBF(U_max,frequence,t):
-        return U_max * np.sin(2*np.pi*frequence*t)
+    def U_GBF(U_max,frequence,t,phi):
+        return U_max * np.sin(2*np.pi*frequence*t+phi)
 
     def diff_q(t,y):
         C, Q0, R, L, r, Um, f = unpack_values()
@@ -438,7 +460,8 @@ def MAIN_RLC_FORCE(mainy):
         solI = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0,1)(TIME))
 
         plt.figure()
-        plt.title("Intensité au Circuit")
+        plt.gcf().canvas.manager.set_window_title("Intensité au Circuit")
+        plt.title(f'Intensité pour C={C}, Q0={Q0}, R={R}, L={L}, r={r}, Um={Um}, f={f}')
         plt.plot(TIME,solI,color='red')
         XY_Units('s','A','Temps','Intensité')
         plt.grid()
@@ -453,7 +476,8 @@ def MAIN_RLC_FORCE(mainy):
         solQ = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0)(TIME))
 
         plt.figure()
-        plt.title("Charge au Condensateur")
+        plt.gcf().canvas.manager.set_window_title("Charge au Condensateur")
+        plt.title(f'Charge pour C={C}, Q0={Q0}, R={R}, L={L}, r={r}, Um={Um}, f={f}')
         plt.plot(TIME,solQ,color='purple',label='Charge')
         XY_Units('s','C','Temps','Charge')
         plt.grid()
@@ -468,7 +492,8 @@ def MAIN_RLC_FORCE(mainy):
         solQ = np.real(LAPLACE_SOLVE(L,R,1/C,y0[0],Um,2*np.pi*f,0)(TIME))
         
         plt.figure()
-        plt.title("Tension au Condensateur")
+        plt.gcf().canvas.manager.set_window_title("Tension au Condensateur")
+        plt.title(f'Tension pour C={C}, Q0={Q0}, R={R}, L={L}, r={r}, Um={Um}, f={f}')
         plt.plot(TIME,solQ/C,color='purple',label='Tension')
         plt.plot(TIME,Um*np.sin(2*np.pi*f*TIME),color='green',label='Tension du Générateur')
         XY_Units('s','V','Temps','Tension')
@@ -482,7 +507,9 @@ def MAIN_RLC_FORCE(mainy):
         
         #DEPHASAGE
         size = 500
-        frequencies = np.linspace(float(entryNn.get()), float(entryNm.get()), size)
+        aph = 2
+        #frequencies = np.linspace(float(entryNn.get()), float(entryNm.get()), size)
+        frequencies = np.linspace(resN/aph, aph*resN, size)
         phases = [np.arctan((1/(C*f) - L*f)/(R+r)) for f in frequencies]
         phases10 = [np.arctan((1/(C*f) - L*f)/((R+r)*10)) for f in frequencies]
 
@@ -493,6 +520,7 @@ def MAIN_RLC_FORCE(mainy):
         plt.vlines(x=resN,ymin=min(phases),ymax=max(phases),color='red',linestyle='--',label="")
 
         plt.title("Dephasage vs Frequence")
+        plt.gcf().canvas.manager.set_window_title("Dephasage vs Frequence")
         XY_Units('Hz','rad','Frequence','Dephasage')
 
         plt.legend()
@@ -505,7 +533,9 @@ def MAIN_RLC_FORCE(mainy):
 
         #AMPLITUDE
         size = 500
-        frequencies = np.linspace(float(entryNn.get()), float(entryNm.get()),size)
+        aph = 2
+        #frequencies = np.linspace(float(entryNn.get()), float(entryNm.get()), size)
+        frequencies = np.linspace(resN/aph, aph*resN, size)
         amplitudes = [E/np.sqrt((R+r)**2 + (L*f - 1/(C*f))**2) for f in frequencies]
         amplitudes10 = [E/np.sqrt(((R+r)*10)**2 + (L*f - 1/(C*f))**2) for f in frequencies]
 
@@ -516,6 +546,7 @@ def MAIN_RLC_FORCE(mainy):
         plt.vlines(x=resN,ymin=0,ymax=max(amplitudes),color='red',linestyle='--',label="")
 
         plt.title("Amplitude vs Frequence")
+        plt.gcf().canvas.manager.set_window_title("Amplitude vs Frequence")
         XY_Units('Hz','A','Frequence',r'Amplitude $I_m$')
 
         plt.legend()
@@ -535,10 +566,25 @@ def MAIN_RLC_FORCE(mainy):
     btn_phi.grid(row=11,column=7)
 
 
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: Circuit RLC Forcé","rlcf.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: Circuit RLC Forcé","rlcf.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=70,height=40,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(40, 40)))
+    gumButton.place(relx=0.2,rely=0.775,anchor='center')
+
+
     app.mainloop()
 
 
 def MAIN_RC(mainy):
+    global guide
+    guide = None
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
@@ -547,7 +593,6 @@ def MAIN_RC(mainy):
     app.geometry("700x500")
     app.resizable(False,False)
     app.title("RC Condensateur")
-    gum.createGuideWindow(app, "Guide: Circuit RC","rc00.txt")
 
     canvas = Canvas(app,width=800,height=600,bg="#1A1A1A",relief="ridge")
     canvas.pack()
@@ -622,7 +667,9 @@ def MAIN_RC(mainy):
         fig, axes = plt.subplots()
         VorA = 'V' if uPlot else 'A'
         TorI = 'Tension' if uPlot else "Intensité"
-        plt.title('Tension aux Bornes du Condensateur')
+        plt.title(TorI+' aux Bornes du Condensateur')
+        plt.gcf().canvas.manager.set_window_title(TorI+' aux Bornes du Condensateur')
+        
         #axes.set_xlabel('Temps (s)')
         #axes.set_ylabel('Tension (V)')
         XY_Units('s',VorA,'Temps',TorI,axes)
@@ -716,6 +763,7 @@ def MAIN_RC(mainy):
         else:
             #plt.figure()
             plt.title('Charge au Condensateur')
+            plt.gcf().canvas.manager.set_window_title('Charge aux Bornes du Condensateur')
             XY_Units('s','C','Temps','Charge',axes)
             tc = tensionCircuit*capacitance
             plt.hlines(y = tc, xmin= 0,
@@ -786,8 +834,6 @@ def MAIN_RC(mainy):
                                 width=200, height=30)
     RLCBox.place(relx=0.5,rely=0.95,anchor=CENTER)
 
-
-
     def updateGraphics():
         width = app.winfo_width()
         height = app.winfo_height()
@@ -795,6 +841,17 @@ def MAIN_RC(mainy):
         
         app.after(int(1e3/3), updateGraphics)
 
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: Circuit RC","rc00.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: Circuit RC","rc00.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=50,height=20,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(30, 30)))
+    gumButton.place(relx=0.95,rely=0.9,anchor=E)
 
     app.after(int(1e3/2), updateGraphics)
     app.mainloop()

@@ -9,7 +9,10 @@ import numpy as np
 import guideManager as gum
 import time
 
+guide = None
+
 def MAIN_MECH(mainy):
+    global guide
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
 
@@ -17,8 +20,6 @@ def MAIN_MECH(mainy):
     app.geometry("750x450")
     app.resizable(False,False)
     app.title("Mécanique")
-
-    gum.createGuideWindow(app, "Guide: Mécanique", "mech.txt")
 
     canvas = Canvas(app,bg="#1A1A1A",width=750,height=450)
     canvas.pack()
@@ -234,11 +235,35 @@ def MAIN_MECH(mainy):
             plt.legend()
             plt.grid()
             plt.show()
-        
+
+    def phasePlot():
+        m, h, k,x0,v0 = unpack_values()
+        X, Y = [],[]
+        if not (m*k == 0):
+            TIME = np.linspace(0,50*np.sqrt(m/k),400)
+            X = np.real(LAPLACE_SOLVE_MECH(m,h,k,x0,v0)(TIME))
+            V = np.real(LAPLACE_SOLVE_MECH(m,h,k,x0,v0,1)(TIME))
+            plt.figure()
+            eigenValue = -h/(2*m) #ou valuer propre
+            sqrt = ((h/m)**2 - 4*(k/m))/2
+            sqrt = np.sqrt(sqrt) if (sqrt>=0) else np.sqrt(-sqrt)*1j
+            eigenPlus = eigenValue+sqrt
+            eigenMinus = eigenValue-sqrt
+            lambdaTitle = r'$\lambda_1 =$'+ str(np.round(np.real(eigenPlus),2)) +(r'$+$' if np.imag(eigenPlus)>=0 else r'$-$')+ str(np.round(np.imag(eigenPlus),2)) +r'$i$'
+            lambdaTitle += r', $\lambda_2 =$'+ str(np.round(np.real(eigenMinus),2)) +(r'$+$' if np.imag(eigenMinus)>=0 else r'')+ str(np.round(np.imag(eigenMinus),2)) +r'$i$'
+            plt.title("Diagramme de l'Espace des Phases " + lambdaTitle)
+            plt.plot(X, V, color='purple',label='Trajectoire de Phase')
+            plt.scatter(0,0,color='green',label="Point d'Equilibre")
+            plt.xlabel('Position')
+            plt.ylabel('Vitesse')
+            plt.grid()
+            plt.legend()
+            plt.show()
 
     ctk.CTkButton(app,text="Simuler", font=("Arial", 24),command=simuler).place(relx=1/3,rely=0.8,anchor=CENTER)
-    ctk.CTkButton(app,text="Arrêter", font=("Arial", 24),command=arreter).place(relx=2/3,rely=0.8,anchor=CENTER)
-    ctk.CTkButton(app,text="Tracer l'énergie", font=("Arial", 24),command=energyPlot).place(relx=1/2,rely=0.9,anchor=CENTER)
+    ctk.CTkButton(app,text="Réinitialiser", font=("Arial", 24),command=arreter).place(relx=2/3,rely=0.8,anchor=CENTER)
+    ctk.CTkButton(app,text="Tracer l'énergie", font=("Arial", 24),command=energyPlot).place(relx=1/3,rely=0.9,anchor=CENTER)
+    ctk.CTkButton(app,text="Plan de Phase", font=("Arial", 24),command=phasePlot).place(relx=2/3,rely=0.9,anchor=CENTER)
 
 
     FPS = 24
@@ -297,7 +322,20 @@ def MAIN_MECH(mainy):
             t = time.time() - T0
             #t += 1
             canvas.after(10,updateGraphics, h,k,t)
-        
+
+    #GUM LOGIC
+    def gumCall():
+        global guide
+        if guide is None:
+            guide = gum.createGuideWindow(app, "Guide: Mécanique", "mech.txt")
+        else:
+            guide.destroy()
+            guide = gum.createGuideWindow(app, "Guide: Mécanique", "mech.txt")
+
+    gumButton = ctk.CTkButton(app,text="Guide",width=50,height=20,command=gumCall,image=ctk.CTkImage(dark_image=Image.open("./res/guide.png"),size=(30, 30)))
+    gumButton.place(relx=0.5,rely=0.75,anchor=CENTER)
+    
+    return app
     #app.after(10, updateGraphics, 0)
     app.mainloop()
 

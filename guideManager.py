@@ -20,7 +20,8 @@ def createGuideWindow(parent, title, text):
     textLi = [i[:-1] for i in open(mainGuidyPath+text,'r').readlines()]
     linesSpacing = 25
     hLi = (len(textLi)+2)*linesSpacing
-    
+
+
     guide = ctk.CTkToplevel(parent)
     guide.geometry(f'{widthGuidy+20}x{min(heightGuidy,hLi+60)}+550+150')
     guide.resizable(False,False)
@@ -68,7 +69,16 @@ def createGuideWindow(parent, title, text):
                 cont.create_text(Cx,i*linesSpacing+15,
                                  text=linClr[0][1:offset],font=("Arial", 20,attrLine),
                                  fill="white")
-
+        elif '¤' in line:
+            jList = line.split(';')
+            Cl = widthGuidy/(len(jList)+1)
+            i+=1
+            for l in range(len(jList)):
+                img = Image.open(jList[l][1:])
+                img = img.resize((int(float(img.size[0])*30/(img.size[1])),30), Image.Resampling.LANCZOS)
+                img = ImageTk.PhotoImage(img)
+                garbageCollector.update({'image'+str(i)+'-'+str(l): img})
+                imgObj = cont.create_image(Cl*(l+1),(i-0.5)*linesSpacing+15,anchor='center',image=img)
         elif '$' in line:
             jList = line.split(';')
             Cl = widthGuidy/(len(jList)+1)
@@ -95,17 +105,19 @@ def createGuideWindow(parent, title, text):
             if len(linClr)>1:
                 cont.create_text(Cx,i*linesSpacing+15,
                              text=linClr[0][0:offset],font=("Arial", 12,attrLine),
-                             fill=linClr[1].strip(),width=450,justify=CENTER)
+                             fill=linClr[1].strip(),width=480,justify=CENTER)
             else:
                 cont.create_text(Cx,i*linesSpacing+15,
                              text=line[0:offset],font=("Arial", 12,attrLine),
-                             fill="white",width=450,justify=CENTER)
+                             fill="white",width=480,justify=CENTER)
             
         i+=1
     cont.rowconfigure(0,weight=1)
     cont.columnconfigure(0,weight=1)
-    #guide.mainloop()
 
+
+    return guide
+    #guide.mainloop()
 
 if __name__ == "__main__":
     app = ctk.CTk()

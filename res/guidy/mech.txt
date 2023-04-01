@@ -2,10 +2,10 @@
 @Mécanique-
 
 En précisant le coefficient du frottement, la masse et le raideur, vous pouvez cliquer "Simuler" ou tracer l'énergie.
-En suite, cliquez sur "Arrêter" afin de réinitialiser le système.
+En suite, cliquez sur "Réinitialiser" afin de réinitialiser le système.
 Vous pouvez cliquer et faire glisser pour définir la position initiale
 $./res/guidy/boxdiag.png
-Il y a 3 cas possibles:
+Il y a 4 cas possibles:
 Sous-amorti:-
 Régime pseudo périodique (h²<4mk)
 Critiquement amorti:-
@@ -14,3 +14,8 @@ Suramorti:-
 Régime apériodique (h²>4mk)
 Sans amortissement:-
 Régime harmonique (h=0)
+
+Le diagramme de l'espace des phases montre comment les variables de position et de vitesse du système évoluent au fil du temps. Les trajectoires dans le diagramme représentent l'évolution du système au fil du temps.
+
+
+La valeur propre lambda représente le taux de décroissance de l'amplitude de l'oscillation (pour la partie réelle) et la vitesse de rotation de la trajectoire dans le diagramme de l'espace des phases (pour la partie imaginaire).
